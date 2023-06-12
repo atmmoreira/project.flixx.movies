@@ -13,7 +13,7 @@
 <div align="center">
   <img src="https://img.shields.io/static/v1?label=STATUS&message=in progress&color=red&style=for-the-badge"/>
   <img src="https://img.shields.io/static/v1?label=CSS&message=3&color=pink&style=for-the-badge"/>
-  <img src="https://img.shields.io/static/v1?label=Javascript&message=es6>&color=yellow&style=for-the-badge"/>
+  <img src="https://img.shields.io/static/v1?label=Javascript&message=es6&color=yellow&style=for-the-badge"/>
 </div>
 
 <br >
