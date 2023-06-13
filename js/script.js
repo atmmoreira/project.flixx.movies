@@ -2,9 +2,9 @@ const global = {
   currentPage: window.location.pathname,
 };
 
+// Display 20 most popular movies
 async function displayPopularMovies() {
   const { results } = await fetchAPIData('movie/popular');
-  console.log(results);
   results.forEach(movie => {
     const div = document.createElement('div');
     div.classList.add('card');
@@ -28,13 +28,51 @@ async function displayPopularMovies() {
   });
 }
 
+// Display 20 most popular tv shows
+async function displayPopularShows() {
+  const { results } = await fetchAPIData('tv/popular');
+  results.forEach(shows => {
+    const div = document.createElement('div');
+    div.classList.add('card');
+    div.innerHTML = `
+      <a href="tv-details.html?id=${shows.id}">
+       ${
+          shows.poster_path
+          ? `<img src="https://image.tmdb.org/t/p/w500${shows.poster_path}" class="card-img-top" alt="${shows.name}" />`
+          : `<img src="images/no-image.jpg" class="card-img-top" alt="${shows.name}" />`
+        }
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">${shows.name}</h5>
+        <p class="card-text">
+          <small class="text-muted">Air date: ${shows.first_air_date}</small>
+        </p>
+      </div>
+    `;
+
+    document.querySelector('#popular-shows').appendChild(div)
+  });
+}
+
 // Fetch data from TMDB API
 async function fetchAPIData(endpoint) {
   const API_KEY = '3a6dacbb2c787551536f07cfc546eba1';
   const API_URL = 'https://api.themoviedb.org/3/';
+  showSpinner();
   const response = await fetch(`${API_URL}${endpoint}?api_key=${API_KEY}`);
   const data = await response.json();
+  hideSpinner();
   return data;
+}
+
+// Show Spinner
+function showSpinner() {
+  document.querySelector('.spinner').classList.add('show');
+}
+
+// Remove Spinner
+function hideSpinner() {
+  document.querySelector('.spinner').classList.remove('show');
 }
 
 // Highlight Active Links
@@ -55,7 +93,7 @@ function Init() {
       displayPopularMovies();
       break;
     case '/shows.html':
-      console.log('Shows');
+      displayPopularShows();
       break;
     case '/movie-details.html':
       console.log('Movie Details');
