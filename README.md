@@ -2,10 +2,8 @@
   <img src="readme/logo/favicon.png" />
   <h1>Anderson Toledo Martins Moreira</h1>
   <h4>
-    Frontend Software Engineer » Salesforce Administrator & Developer <br />
-    <a href="http://www.atmm.dev" target="_blank">Resume Online</a> -
-    <a href="https://www.linkedin.com/in/atmmoreira" target="_blank">Linkedin</a> -
-    <a href="https://trailblazer.me/id/atmmdev" target="_blank">Trailblazer</a>
+    Frontend Software Engineer <br />
+    <a href="http://www.atmm.dev" target="_blank">Resume Online</a>
   </h4>
 </div>
 <br >
